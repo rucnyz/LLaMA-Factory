@@ -11,4 +11,8 @@ cd /home/kazhu@amd.com/yz-LLaMA-Factory && pip install -e ".[torch,metrics]" --n
 
 ```shell
 CUDA_VISIBLE_DEVICES=2,3,4,5 llamafactory-cli train examples/train_full/qwen3_14b.yaml output_dir=./results/aigise-gemini-Qwen3-14B-sft
+
+CUDA_VISIBLE_DEVICES=2,3,4,5 llamafactory-cli train examples/train_full/qwen3_32b.yaml output_dir=./results/aigise-gemini-Qwen3-32B-sft
+
+CUDA_VISIBLE_DEVICES=2,3,4,5 llamafactory-cli train examples/train_full/qwen3_8b.yaml output_dir=./results/aigise-gemini-Qwen3-8B-sft
 ```

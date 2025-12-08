@@ -1,6 +1,6 @@
 {
   "aigise_gemini": {
-    "file_name": "251208_100652.jsonl",
+    "file_name": "251208_100652_filtered.jsonl",
     "formatting": "sharegpt",
     "columns": {
       "messages": "conversations"
