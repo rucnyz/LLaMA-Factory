@@ -51,7 +51,6 @@ class SupervisedDatasetProcessor(DatasetProcessor):
 
         for turn_idx, (source_ids, target_ids) in enumerate(encoded_pairs):
             if total_length >= self.data_args.cutoff_len:
-                raise ValueError(f"Dropped lengthy example with length {total_length} > {self.data_args.cutoff_len}.")
                 break
 
             source_len, target_len = infer_seqlen(
