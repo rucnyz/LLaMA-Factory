@@ -1,17 +1,18 @@
 import json
-from transformers import AutoTokenizer
+
 import matplotlib.pyplot as plt
 import numpy as np
+from transformers import AutoTokenizer
+
 
 # 配置
 INPUT_FILE = "data/251208_100652.jsonl"
 OUTPUT_FILE = "data/251208_100652_filtered.jsonl"
 MODEL_NAME = "Qwen/Qwen3-8B"  # 根据需要修改模型名
-MAX_TOKENS = 100000  # 100k tokens
+MAX_TOKENS = 50000  # 100k tokens
 
 def count_tokens(tokenizer, messages, system=None, tools=None):
-    """
-    按照 LlamaFactory 的逻辑计算 token 数量
+    """按照 LlamaFactory 的逻辑计算 token 数量
     参考: src/llamafactory/data/processor/supervised.py L47
     这里简化处理，直接对所有消息内容进行编码并统计总token数
     """
@@ -75,7 +76,7 @@ def main():
 
     print(f"Processing {INPUT_FILE}...")
 
-    with open(INPUT_FILE, "r", encoding="utf-8") as fin, \
+    with open(INPUT_FILE, encoding="utf-8") as fin, \
          open(OUTPUT_FILE, "w", encoding="utf-8") as fout:
 
         for line in fin:
@@ -108,7 +109,7 @@ def main():
                 if dropped_count <= 10:  # 只打印前10条被丢弃的
                     print(f"Dropped line {total_count}: {token_count} tokens")
 
-    print(f"\n=== Summary ===")
+    print("\n=== Summary ===")
     print(f"Total samples: {total_count}")
     print(f"Kept samples: {kept_count}")
     print(f"Dropped samples: {dropped_count}")
@@ -120,7 +121,7 @@ def main():
         max_length = int(np.max(token_lengths_arr))
         max_idx = int(np.argmax(token_lengths_arr)) + 1  # 转为1-based行号
 
-        print(f"\n=== Token Length Statistics (All Data) ===")
+        print("\n=== Token Length Statistics (All Data) ===")
         print(f"Min: {int(np.min(token_lengths_arr))}")
         print(f"Max: {max_length} (Line {max_idx})")
         print(f"Mean: {np.mean(token_lengths_arr):.2f}")
@@ -130,7 +131,7 @@ def main():
         # 过滤后的统计
         kept_lengths = token_lengths_arr[token_lengths_arr <= MAX_TOKENS]
         if len(kept_lengths) > 0:
-            print(f"\n=== Token Length Statistics (After Filtering) ===")
+            print("\n=== Token Length Statistics (After Filtering) ===")
             print(f"Min: {int(np.min(kept_lengths))}")
             print(f"Max: {int(np.max(kept_lengths))}")
             print(f"Mean: {np.mean(kept_lengths):.2f}")
@@ -139,7 +140,7 @@ def main():
 
         # 分位数
         percentiles = [25, 50, 75, 90, 95, 99]
-        print(f"\n=== Percentiles (After Filtering) ===")
+        print("\n=== Percentiles (After Filtering) ===")
         for p in percentiles:
             print(f"P{p}: {int(np.percentile(kept_lengths, p))}")
 
