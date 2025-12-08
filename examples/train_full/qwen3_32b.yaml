@@ -24,15 +24,21 @@ save_steps: 500
 plot_loss: true
 overwrite_output_dir: true
 save_only_model: false
+
+# wandb
 report_to: wandb  # choices: [none, wandb, tensorboard, swanlab, mlflow]
 run_name: aigise-gemini-Qwen3-32B-sft
+push_to_hub: true
+hub_strategy: every_save
+push_to_hub_model_id: aigise-gemini-Qwen3-32B-sft
+push_to_hub_organization: aigise
 
 ### train
 per_device_train_batch_size: 1
 gradient_accumulation_steps: 8
 learning_rate: 5.0e-6
 weight_decay: 0
-num_train_epochs: 5
+num_train_epochs: 10
 lr_scheduler_type: cosine
 warmup_ratio: 0.1
 bf16: true
