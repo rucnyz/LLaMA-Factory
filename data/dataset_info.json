@@ -1,4 +1,18 @@
 {
+  "aigise_gemini": {
+    "file_name": "251208_100652.jsonl",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations"
+    },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant",
+      "observation_tag": "tool"
+    }
+  },
   "identity": {
     "file_name": "identity.json"
   },
