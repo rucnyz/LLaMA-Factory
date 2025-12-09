@@ -4,12 +4,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 from transformers import AutoTokenizer
 
-
+name = "251208_132307"
 # 配置
-INPUT_FILE = "data/251208_100652.jsonl"
-OUTPUT_FILE = "data/251208_100652_filtered.jsonl"
+INPUT_FILE = f"data/{name}.jsonl"
+OUTPUT_FILE = f"data/{name}_filtered.jsonl"
 MODEL_NAME = "Qwen/Qwen3-8B"  # 根据需要修改模型名
-MAX_TOKENS = 50000  # 100k tokens
+MAX_TOKENS = 70000  # 100k tokens
 
 def count_tokens(tokenizer, messages, system=None, tools=None):
     """按照 LlamaFactory 的逻辑计算 token 数量
