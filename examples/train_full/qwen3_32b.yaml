@@ -20,7 +20,7 @@ dataloader_num_workers: 4
 ### output
 output_dir: ./results/aigise-gemini-Qwen3-32B-sft
 logging_steps: 10
-save_steps: 500
+save_steps: 20
 plot_loss: true
 overwrite_output_dir: true
 save_only_model: false
@@ -36,8 +36,7 @@ push_to_hub_organization: aigise
 ### train
 per_device_train_batch_size: 1
 gradient_accumulation_steps: 8
-learning_rate: 5.0e-6
-weight_decay: 0
+learning_rate: 4.0e-6
 num_train_epochs: 10
 lr_scheduler_type: cosine
 warmup_ratio: 0.1
