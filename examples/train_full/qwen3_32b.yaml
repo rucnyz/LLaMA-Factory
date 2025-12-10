@@ -20,7 +20,7 @@ dataloader_num_workers: 4
 ### output
 output_dir: ./results/aigise-gemini-Qwen3-32B-sft
 logging_steps: 1
-save_steps: 10
+save_steps: 20
 plot_loss: true
 overwrite_output_dir: false
 save_only_model: false

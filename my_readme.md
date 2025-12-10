@@ -18,6 +18,7 @@ learning_rate=${LR}
 
 # multi node
 cd /wekafs/kazhu/yz-LLaMA-Factory && \
+git pull && \
 pip install -e ".[torch,metrics]" --no-build-isolation && \
 FORCE_TORCHRUN=1 \
 NNODES=${PET_NNODES} \
