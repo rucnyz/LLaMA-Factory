@@ -22,7 +22,7 @@ output_dir: ./results/aigise-gemini-Qwen3-32B-sft
 logging_steps: 1
 save_steps: 10
 plot_loss: true
-overwrite_output_dir: true
+overwrite_output_dir: false
 save_only_model: true
 
 # wandb
