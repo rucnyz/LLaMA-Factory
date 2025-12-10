@@ -23,7 +23,7 @@ logging_steps: 1
 save_steps: 10
 plot_loss: true
 overwrite_output_dir: true
-save_only_model: false
+save_only_model: true
 
 # wandb
 report_to: wandb  # choices: [none, wandb, tensorboard, swanlab, mlflow]
@@ -45,8 +45,7 @@ ddp_timeout: 180000000
 resume_from_checkpoint: null
 
 ### eval
-# eval_dataset: alpaca_en_demo
-# val_size: 0.1
-# per_device_eval_batch_size: 1
-# eval_strategy: steps
-# eval_steps: 500
+eval_dataset: aigise_gemini_eval
+per_device_eval_batch_size: 1
+eval_strategy: steps
+eval_steps: 5

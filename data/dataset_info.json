@@ -13,6 +13,20 @@
       "observation_tag": "tool"
     }
   },
+  "aigise_gemini_eval": {
+    "hf_hub_url": "aigise/gemini_251209_175939_filtered",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations"
+    },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant",
+      "observation_tag": "tool"
+    }
+  },
   "identity": {
     "file_name": "identity.json"
   },
